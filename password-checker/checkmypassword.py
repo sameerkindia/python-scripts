@@ -1,6 +1,6 @@
 import requests
 import hashlib
-
+import sys
 
 def request_api_data(hash_char):
     url = 'https://api.pwnedpasswords.com/range/' + hash_char
@@ -14,8 +14,10 @@ def request_api_data(hash_char):
 def get_password_leaks_count(hashes, hash_to_check):
     hashe = (line.split(':') for line in hashes.text.splitlines())
 
-    for h in hashe:
-        print(h)
+    for h, count in hashe:
+        if h == hash_to_check:
+            return count
+    return 0
     
 
 
@@ -30,4 +32,14 @@ def pwned_api_check(password):
     return get_password_leaks_count(response, tail)
 
 
-pwned_api_check('123')
+# pwned_api_check('123')
+
+def main(args):
+    for password in args:
+        count = pwned_api_check(password)
+        if count :
+            print(f'{password} was found {count} times... password badal lo')
+        else:
+            print(f'{password} was not found. lage raho')
+
+main(sys.argv[1:])

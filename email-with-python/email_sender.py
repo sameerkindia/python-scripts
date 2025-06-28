@@ -4,7 +4,6 @@ from string import Template
 from pathlib import Path
 
 
-
 html = Template(Path('./index.html').read_text())
 email = EmailMessage()
 

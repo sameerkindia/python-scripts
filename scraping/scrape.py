@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pprint
 
+
 def multipage_data(pages=1):
     links = []
     subtext = []
@@ -12,9 +13,10 @@ def multipage_data(pages=1):
         links.extend(soup.select('.titleline > a'))
         subtext.extend(soup.select('.subtext'))
 
-    return links , subtext
+    return links, subtext
 
 # multipage_data(2)
+
 
 links, subtext = multipage_data()
 
@@ -27,7 +29,8 @@ links, subtext = multipage_data()
 # print(votes)
 
 def short_stories_by_votes(hnlist):
-    return sorted(hnlist, key= lambda k:k['votes'], reverse= True)
+    return sorted(hnlist, key=lambda k: k['votes'], reverse=True)
+
 
 def create_custom_hn(links, subtext):
     # print(links)
@@ -38,13 +41,13 @@ def create_custom_hn(links, subtext):
         href = links[idx].get('href', None)
         vote = subtext[idx].select('.score')
         if len(vote):
-          points = int(vote[0].getText().replace(' points' , ''))
+            points = int(vote[0].getText().replace(' points', ''))
 
-          if points > 99:
-              hn.append({'title':title, 'href': href, 'votes': points})
-        
+            if points > 99:
+                hn.append({'title': title, 'href': href, 'votes': points})
 
     return short_stories_by_votes(hn)
+
 
 # create_custom_hn(links, subtext)
 pprint.pprint(create_custom_hn(links, subtext))

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Python Backend Learning</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python Backend Learning Hub</h1>
+            <p class="subtitle">Your frontend interface for backend development</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>🚀 Getting Started</h2>
+                <p>This simple website serves as a frontend interface for your Python backend learning journey. You can connect this to Flask, Django, or FastAPI backends.</p>
+                <p>Use the form below to test API endpoints and see responses in real-time.</p>
+            </div>
+
+            <div class="card">
+                <h2>🛠️ Features</h2>
+                <p>• Clean, responsive design</p>
+                <p>• Form handling for API testing</p>
+                <p>• Mock API endpoint documentation</p>
+                <p>• Real-time response display</p>
+                <p>• Ready for backend integration</p>
+            </div>
+
+            <div class="card">
+                <h2>📚 Learning Path</h2>
+                <p>1. Create a Python backend (Flask/Django/FastAPI)</p>
+                <p>2. Connect this frontend to your backend</p>
+                <p>3. Handle form submissions</p>
+                <p>4. Implement user authentication</p>
+                <p>5. Add database integration</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Test Your API</h2>
+            <form id="apiForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="general">General</option>
+                        <option value="technical">Technical</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Submit Data</button>
+            </form>
+            
+            <div class="response-area" id="responseArea">
+Response will appear here...
+            </div>
+        </div>
+
+        <div class="api-endpoints">
+            <h2>Example API Endpoints</h2>
+            <p>Here are some common endpoints you might implement in your Python backend:</p>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <strong>/api/users</strong> - Get all users
+            </div>
+            
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <strong>/api/users</strong> - Create a new user
+            </div>
+            
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <strong>/api/users/{id}</strong> - Get user by ID
+            </div>
+            
+            <div class="endpoint">
+                <span class="method put">PUT</span>
+                <strong>/api/users/{id}</strong> - Update user
+            </div>
+            
+            <div class="endpoint">
+                <span class="method delete">DELETE</span>
+                <strong>/api/users/{id}</strong> - Delete user
+            </div>
+            
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <strong>/api/contact</strong> - Submit contact form
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('apiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Simulate API call
+            const responseArea = document.getElementById('responseArea');
+            responseArea.textContent = 'Sending request...';
+            
+            // Simulate network delay
+            setTimeout(() => {
+                const response = {
+                    status: 'success',
+                    message: 'Data received successfully!',
+                    data: data,
+                    timestamp: new Date().toISOString()
+                };
+                
+                responseArea.textContent = JSON.stringify(response, null, 2);
+            }, 1000);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Sameer Khan - Full Stack Developer</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SameerKIndia</div>
+        <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT ME</a></li>
+            <li><a href="/skills">SKILLS</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+        </ul>
+        <a href="/contact" class="contact-btn">CONTACT</a>
+    </nav>
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 40px;">
+            <div style="width: 60px; height: 60px; background: #c3f53c; border-radius: 10px;"></div>
+            <h2>WHO AM I ?</h2>
+            <div style="width: 60px; height: 60px; background: #ffa726; border-radius: 10px;"></div>
+        </div>
+        
+        <div class="about-content">
+            <p>I am a Full-stack developer located in the India. I have a serious passion for UI effects, animations and creating intuitive, dynamic user experience.</p>
+            <br>
+            <p>Programming is my passion, that's the reason I am working at the love of my awesome clients.</p>
+            <br>
+            <p>Additionally, I like to play Cricket and read some books in my leisure time since we know it rest and relax.</p>
+        </div>
+        
+        <button class="show-projects-btn" onclick="document.getElementById('projects').scrollIntoView()">SHOW MY PROJECTS</button>
+    </section>
+
+    <script src="static/index.js"></script>
+</body>
+</html>

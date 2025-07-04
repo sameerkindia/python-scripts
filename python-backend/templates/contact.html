@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Sameer Khan - Full Stack Developer</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SameerKIndia</div>
+        <ul class="nav-links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT ME</a></li>
+            <li><a href="/skills">SKILLS</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+        </ul>
+        <a href="/contact" class="contact-btn">CONTACT</a>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>LET'S HAVE A CHAT</h2>
+        
+        <form class="contact-form" action="/submit_form" method="post">
+            <div class="form-group">
+                <input name="name" type="text" class="form-control" placeholder="YOUR NAME" >
+            </div>
+            <div class="form-group">
+                <input name="email" type="email" class="form-control" placeholder="EMAIL ADDRESS" >
+            </div>
+            <div class="form-group">
+                <textarea name="message" class="form-control textarea" placeholder="CHAT HERE" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SUBMIT HERE</button>
+        </form>
+    </section>
+
+    <script src="static/index.js"></script>
+</body>
+</html>

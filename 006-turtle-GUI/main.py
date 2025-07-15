@@ -2,6 +2,17 @@ from turtle import Turtle, Screen, colormode
 import random
 
 tinu = Turtle()
+
+colormode(255)  # Enable RGB color mode
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_rgb = (r, g, b)
+    return random_rgb
+
+
 # Square
 # tinu.shape("turtle")
 # tinu.color('green')
@@ -45,32 +56,30 @@ tinu = Turtle()
 
 # Random Walk
 
-colormode(255)  # Enable RGB color mode
+# def random_walk():
+#     tinu.speed("fastest")
+#     tinu.pensize(5)
 
-def random_color():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    random_rgb = (r, g, b)
-    return random_rgb
+#     colors = ["red", "blue", "green", "orange", "purple", "yellow", "black"]
 
+#     directions = [0, 90, 180, 270]
 
-def random_walk():
+#     for _ in range(200):
+#         # tinu.color(random.choice(colors))
+#         tinu.color(random_color())
+#         tinu.forward(30)
+#         tinu.setheading(random.choice(directions))
+
+# random_walk()
+
+def draw_spirograph(size_of_gap):
     tinu.speed("fastest")
-    tinu.pensize(5)
-
-    colors = ["red", "blue", "green", "orange", "purple", "yellow", "black"]
-
-    directions = [0, 90, 180, 270]
-
-    for _ in range(200):
-        # tinu.color(random.choice(colors))
+    for _ in range(int(360 / size_of_gap)):
         tinu.color(random_color())
-        tinu.forward(30)
-        tinu.setheading(random.choice(directions))
+        tinu.circle(100)
+        tinu.setheading(tinu.heading() + size_of_gap)
 
-random_walk()
-
+draw_spirograph(5)
 
 screen = Screen()
 screen.exitonclick()
